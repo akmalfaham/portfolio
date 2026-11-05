@@ -1,0 +1,743 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --bg: #0b1120;
+  --surface: #131d30;
+  --text: #f4f7fb;
+  --muted: #a5b1c5;
+  --accent: #67e8f9;
+  --border: #29364c;
+  --success: #22c55e;
+  --about-bg: #101b2e;
+  --skills-bg: #142238;
+  --projects-bg: #0e192b;
+  --education-bg: #16243a;
+  --contact-bg: #101d30;
+}
+
+/* ================= GLOBAL STYLES ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin-inline: auto;
+}
+
+/* ================= HEADER & NAVIGATION ================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 17, 32, 0.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+/* Profile icon beside the header name */
+.logo i {
+  color: var(--accent);
+  font-size: 1.5rem;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a,
+.social-links a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.social-links a:hover {
+  color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* ================= HOME / HERO SECTION ================= */
+.hero {
+  min-height: 580px;
+  padding-block: 100px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.hero h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.8rem);
+  margin-bottom: 20px;
+}
+
+.hero .hero-tagline {
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
+  line-height: 1.4;
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+}
+
+.intro,
+.section-text {
+  max-width: 660px;
+  color: var(--muted);
+}
+
+/* Hero buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: var(--accent);
+  color: #07111e;
+}
+
+.secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Availability information */
+.availability {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.availability span {
+  display: block;
+}
+
+.availability-icon {
+  color: var(--success);
+  margin-right: 8px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+/* Hero profile image */
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 330px;
+  height: 390px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= COMMON SECTION STYLES ================= */
+.section {
+  padding-block: 80px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 0;
+}
+
+/* Individual section backgrounds */
+#about {
+  background-color: var(--about-bg);
+  padding-top: 60px;
+  padding-bottom: 65px;
+  min-height: calc(100vh - 76px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+#skills {
+  background-color: var(--skills-bg);
+  padding-top: 65px;
+  padding-bottom: 70px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+#projects {
+  background-color: var(--projects-bg);
+  padding-top: 70px;
+  padding-bottom: 80px;
+}
+
+#education {
+  background-color: var(--education-bg);
+  padding-top: 70px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+#contact {
+  background-color: var(--contact-bg);
+  min-height: calc(100vh - 76px);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Section headings */
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+  line-height: 1.25;
+}
+
+.section-text {
+  line-height: 1.7;
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 35px;
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 250px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  border: 2px solid var(--accent);
+}
+
+.about-content p {
+  color: var(--muted);
+}
+
+/* ================= SKILLS SECTION ================= */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.skill-card h3 {
+  margin-bottom: 8px;
+}
+
+.skill-card p {
+  color: var(--muted);
+}
+
+/* Coloured bullet points for skill headings */
+.skill-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-heading::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  min-width: 9px;
+  border-radius: 50%;
+}
+
+.skill-heading.mobile::before {
+  background-color: #22c55e;
+}
+
+.skill-heading.web::before {
+  background-color: #38bdf8;
+}
+
+.skill-heading.programming::before {
+  background-color: #c084fc;
+}
+
+.skill-heading.database::before {
+  background-color: #facc15;
+}
+
+.skill-heading.tools::before {
+  background-color: #fb7185;
+}
+
+/* ================= PROJECTS SECTION ================= */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.project-visual {
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #172b45, #1b4050);
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.project-body {
+  padding: 23px;
+}
+
+.project-body h3 {
+  margin-bottom: 8px;
+}
+
+.project-body p {
+  color: var(--muted);
+}
+
+/* Project technology tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-block: 18px;
+}
+
+.tags span {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: var(--accent);
+  background: #1c3347;
+}
+
+.project-body > a {
+  color: var(--accent);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.project-body > a:hover {
+  text-decoration: underline;
+}
+
+.project-status {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* ================= EDUCATION SECTION ================= */
+.education-card {
+  padding: 24px;
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.education-card:hover {
+  border-color: var(--accent);
+}
+
+.education-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.education-card p {
+  color: var(--muted);
+}
+
+/* Education qualification icons */
+.education-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  min-width: 25px;
+}
+
+.education-icon.degree {
+  color: #67e8f9;
+}
+
+.education-icon.diploma {
+  color: #c084fc;
+}
+
+.education-icon.qualification {
+  color: #22c55e;
+}
+
+/* ================= CONTACT SECTION ================= */
+#contact .section-text {
+  max-width: 700px;
+}
+
+#contact .hero-actions {
+  margin-top: 20px;
+}
+
+/* Match Email Me button size to social links */
+#contact .button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+#contact .button.primary {
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+
+/* Remove Email Me button outline */
+#contact .button.primary,
+#contact .button.primary:hover,
+#contact .button.primary:focus,
+#contact .button.primary:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* GitHub and LinkedIn links */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 25px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.social-links a i {
+  font-size: 1.3rem;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  padding: 25px 5%;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ================= TABLETS ================= */
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-block: 70px;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+    height: 350px;
+  }
+
+  .skill-grid,
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+}
+
+/* ================= MOBILE DEVICES ================= */
+@media (max-width: 600px) {
+  /* Mobile header */
+  html {
+    scroll-padding-top: 68px;
+  }
+
+  .nav {
+    min-height: 68px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.45rem;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+    padding-bottom: 18px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 5px 0;
+  }
+
+  /* Mobile hero */
+  .hero {
+    padding-block: 55px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero .hero-tagline {
+    font-size: clamp(0.85rem, 3.6vw, 1.1rem);
+    letter-spacing: -0.4px;
+    white-space: normal;
+  }
+
+  .hero-image img {
+    width: 220px;
+    height: 270px;
+  }
+
+  .availability {
+    font-size: 0.85rem;
+  }
+
+  /* Mobile About */
+  .about-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    margin: 0 auto;
+    width: 200px;
+    height: 240px;
+  }
+
+  /* Mobile section spacing */
+  .section {
+    padding-block: 60px;
+  }
+
+  #about {
+    padding-top: 45px;
+    padding-bottom: 60px;
+  }
+
+  #skills {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+  }
+
+  #projects {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  #education {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: 100vh;
+  }
+
+  #contact {
+    min-height: calc(100vh - 68px);
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Mobile grids */
+  .skill-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile education cards */
+  .education-card {
+    padding: 20px;
+  }
+
+  .education-card h3 {
+    align-items: flex-start;
+  }
+
+  /* Mobile contact */
+  .social-links {
+    gap: 12px;
+  }
+}
+
+/* ================= SMALL MOBILE DEVICES ================= */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .button {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
